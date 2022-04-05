@@ -1,40 +1,207 @@
+html { 
+    background: url(./blue.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
 body {
-  padding: 0;
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  font-family: "Syne Mono", monospace;
-  background-color: #7236ff;
-  display: flex;
+    /*background-color: #8094d4;*/
+    color: #0a0408;
+}
+
+#appTitle {
+    text-align: center;
+    margin: 0px auto;
+    display: block;
+    font-family: 'Staatliches', sans-serif;
+    font-size: 80px;
+}
+
+#genreForm, #playBtn {
+    text-align: center;
+    margin: 0px auto;
+    display: block;
+    font-family: 'Fredoka One', sans-serif;
+}
+
+#movieInfo {
+    width:  65%;
+    margin:  32px auto;
+    background-color: #2a3665;
+}
+
+#movieInfo:after {
+    content:  "";
+    display:  table;
+    clear:  both;
+}
+
+#moviePoster, #movieText {
+    width:  50%;
+    float:  left;
+}
+
+img#moviePoster {
+    width:  100%;
+    height:  auto;
+    display:  block;
+    margin:  auto;
+}
+
+#movieText {
+    font-family: 'Questrial';
+    color: #FEFBEA;
+    line-height: 1.25;
+}
+
+#movieTitle, #movieOverview {
+    padding:  32px;
+}
+
+#playBtn {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 25px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #ae3a3a;
+    color: #f4db6d;
+    cursor:  pointer;
+}
+
+label {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 200px;
+    height: auto;
+}
+
+#likeOrDislikeBtns {
+    text-align: center;
+    margin: 0px auto;  
+}
+
+#likeBtn, #dislikeBtn {
+    padding: 15px 25px;
+    font-size: 25px;
+    border-radius: 12px;
+    border-style: none;
+    cursor:  pointer;
+}
+
+#likeBtn {
+    background-color: #38cd67;
+    color: darkgreen;
+    border: 2px solid #FEFBEA ;
+}
+
+#dislikeBtn {
+    background-color: #eb4949;
+    color: #910000;
+    border: 2px solid #FEFBEA ;
+}
+
+#moviePoster {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 30px;
+}
+
+
+
+/* Learn about this solution to creating custom select styles:*/
+/* @link https://moderncss.dev/custom-select-styles-with-pure-css/*/
+
+select {
+  /* A reset of styles, including removing the default dropdown arrow*/
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0 auto;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  text-align-last:center;
+
+  /* Stack above custom arrow*/
+  z-index: 1;
+
+  /* Remove dropdown arrow in IE10 & IE11*/
+  /* @link https://www.filamentgroup.com/lab/select-css.html*/
+
+  /* Remove focus outline, will add on alternate element*/
+  outline: none;
+}
+
+#genres {
+  display: grid;
+  grid-template-areas: "select";
   align-items: center;
-  justify-content: center;
-}
+  position: relative;
 
-.container {
-  width: 750px;
-  max-width: 75%;
-  text-align: center;
-  background-color: #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px 1px;
-  padding: 20px;
-}
+  min-width: 15ch;
+  max-width: 30ch;
 
-.button {
-  background-color: #4400ff;
-  color: #ffffff;
-  border-radius: 4px;
-  padding: 10px 40px;
-  margin: 15px 0px;
-  font-size: 1.75rem;
-  border: 5px solid #4400ff;
-}
+  border: 1px solid var(--select-border);
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
 
-.button:hover {
-  border: 5px solid black;
+  font-size: 1.25rem;
   cursor: pointer;
+  line-height: 1.1;
+
+  /* Optional styles*/
+  /* remove for transparency*/
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+
 }
 
-.button:active {
-  border: 5px solid #ffd300;
+/* Interim solution until :focus-within has better support*/
+select:focus + .focus {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 2px solid var(--select-focus);
+  border-radius: inherit;
+}
+
+select[multiple] {
+  padding-right: 0;
+
+  /*
+   * Safari will not reveal an option
+   * unless the select height has room to 
+   * show all of it
+   * Firefox and Chrome allow showing 
+   * a partial option
+   */
+  height: 6rem;
+
+}
+
+#genres--disabled {
+  cursor: not-allowed;
+  background-color: #eee;
+  background-image: linear-gradient(to top, #ddd, #eee 33%);
+}
+
+label {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+#genres {
+  margin-top: 2rem;
 }
